@@ -1,17 +1,20 @@
 .App {
   text-align: center;
+  background-color: darkslategray;
+  margin-left: 20px;
+  padding-left: 10px;
+  position: bottom;
 }
 
 .Logo {
   height: 40vmin;
   pointer-events: none;
-  color: 'fff';
+  color: darkslategray;
   position: relative;
-  bottom: -9.5cm;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: darkslategray;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,8 +29,8 @@
 }
 
 .Navbar {
-  background-color: '#282c34';
-  padding: '10px';
+  background-color: white;
+  padding: 0px;
   display: 'flex';
   justify-content: 'center';
   align-items: 'center';
@@ -36,11 +39,16 @@
 
 .Container {
   padding: '20px';
-  background-color: '#f3f3f3';
+  color: aliceblue;
+  background-color: darkslategray;
   border-radius: '8px';
   max-width: '400px';
   margin: '20px auto';
   text-align: 'center' as 'center';
+  position: absolute;
+  bottom: 20px;
+  margin: 10px;
+  padding: 15px;
 }
 
 .Controls {
@@ -63,13 +71,15 @@
 }
 
 .Footer {
-  background-color: '#282c34';
-  color: '#fff';
-  text-align: 'bottom' as 'bottom';
-  padding: '10px';
-  position: 'relative' as 'relative';
-  top: 0;
-  right: 0;
-  bottom: 0;
+  background-color: darkslategray;
+  color: aliceblue;
+  text-align: justify;
+  border-bottom: 10px;
+  border-color: darkslategray;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
   width: '100%';
+  padding: 5px;
+  margin: 10px;
 }
