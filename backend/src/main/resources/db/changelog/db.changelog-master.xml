@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro
+        http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+    <changeSet author="evicacoelho" id="tableCreate-1">
+        <createTable tableName="media">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="title" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="artist" type="varchar">
+                <constraints nullable="true"/>
+            </column>
+            <column name="playlist_id" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="locale" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="playlists">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified_at" type="varchar">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+    </changeSet>
+
+
+</databaseChangeLog>

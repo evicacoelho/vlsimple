@@ -1,7 +1,8 @@
 package com.vlsimple.model;
 
-import javax.annotation.processing.Generated;
+import java.sql.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,16 +10,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="media")
+@Table(name = "media")
 public class Media {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    @Column
     private String title;
+    @Column
     private String artist;
-    private String album;
-    private String url;
-    private String metadata;
+    @Column
+    private String playlistId;
+    @Column
+    private String locale;
+    @Column
+    private String createdAt;
+
 }
+

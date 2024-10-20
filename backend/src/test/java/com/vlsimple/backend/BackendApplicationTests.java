@@ -1,10 +1,10 @@
-package com.vlsimple.backend_vlsimple;
+package com.vlsimple.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class BackendVlsimpleApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {

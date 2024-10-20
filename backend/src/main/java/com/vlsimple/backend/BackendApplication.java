@@ -1,13 +1,13 @@
-package com.vlsimple.backend_vlsimple;
+package com.vlsimple.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BackendVlsimpleApplication {
+public class BackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendVlsimpleApplication.class, args);
+		SpringApplication.run(BackendApplication.class, args);
 	}
 
 }
