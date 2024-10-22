@@ -22,7 +22,7 @@
             <column name="artist" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="playlist_id" type="varchar(255)">
+            <column name="playlist_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
             <column name="locale" type="varchar(255)">

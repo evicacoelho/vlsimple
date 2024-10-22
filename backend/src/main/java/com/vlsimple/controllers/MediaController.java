@@ -10,14 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vlsimple.model.Media;
 import com.vlsimple.repository.MediaRepository;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import java.time.LocalDateTime;
-
-
-
 
 @RestController
 @RequestMapping("api/media")
@@ -50,6 +48,4 @@ public class MediaController {
             .map(media -> ResponseEntity.ok().body(media))
             .orElse(ResponseEntity.notFound().build());
     }
-    
-    
 }

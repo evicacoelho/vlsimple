@@ -1,12 +1,13 @@
 package com.vlsimple.model;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "media")
@@ -23,7 +24,7 @@ public class Media {
     private String artist;
 
     @Column(name = "playlist_id")
-    private String playlistId;
+    private Long playlistId;
 
     @Column
     private String locale;
@@ -33,6 +34,9 @@ public class Media {
 
     // getters
 
+    public Long getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
@@ -42,7 +46,7 @@ public class Media {
         return artist;
     }
 
-    public String getPlaylistId() {
+    public Long getPlaylistId() {
         return playlistId;
     }
 
