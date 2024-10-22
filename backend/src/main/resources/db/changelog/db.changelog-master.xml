@@ -13,19 +13,19 @@
 
     <changeSet author="evicacoelho" id="tableCreate-1">
         <createTable tableName="media">
-            <column name="id" type="int">
-                <constraints primaryKey="true"/>
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="title" type="varchar">
+            <column name="title" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="artist" type="varchar">
-                <constraints nullable="true"/>
+            <column name="artist" type="varchar(255)">
+                <constraints nullable="false"/>
             </column>
-            <column name="playlist_id" type="int">
-                <constraints nullable="true"/>
+            <column name="playlist_id" type="varchar(255)">
+                <constraints nullable="false"/>
             </column>
-            <column name="locale" type="varchar">
+            <column name="locale" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="created_at" type="datetime">
@@ -33,21 +33,19 @@
             </column>
         </createTable>
         <createTable tableName="playlists">
-            <column name="id" type="int">
-                <constraints primaryKey="true"/>
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar">
+            <column name="name" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="modified_at" type="varchar">
+            <column name="modified_at" type="datetime">
                 <constraints nullable="false"/>
             </column>
-            <column name="created_at" type="int">
+            <column name="created_at" type="datetime">
                 <constraints nullable="false"/>
             </column>
         </createTable>
         
     </changeSet>
-
-
 </databaseChangeLog>

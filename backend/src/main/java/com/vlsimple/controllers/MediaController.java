@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import java.time.LocalDateTime;
+
 
 
 
@@ -34,8 +36,11 @@ public class MediaController {
     // add media
     @PostMapping
     public Media createMedia(@RequestBody Media media) {
-        return mediaRepository.save(media);
+        if (media.getCreatedAt() == null) {
+            media.setCreatedAt(LocalDateTime.now());
+        }
         
+        return mediaRepository.save(media);
     }
 
     // list by id
