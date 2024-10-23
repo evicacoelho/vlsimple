@@ -20,9 +20,6 @@ To check if the db is ready:
 `DOCKER_CONTAINER_NAME="postgres-db"`
 `timeout 90s bash -c "until docker exec $DOCKER_CONTAINER_NAME pg_isready ; do sleep 5 ; done"`
 
-DOCKER_CONTAINER_NAME="postgres-db"
-timeout 90s bash -c "until docker exec $DOCKER_CONTAINER_NAME pg_isready ; do sleep 5 ; done"
-
 ### running the project with maven/spring-boot
 
 Following up, you'll have to install all the dependencies with:
@@ -33,9 +30,13 @@ And after installing all the dependencies once, run:
 
 `mvn spring-boot:run`
 
-### testing liquibase:
+### regarding liquibase:
 
-`liquibase status --url=dbc:postgresql://localhost:5432/vlsimple_db --changeLogFile=src/main/resources/db/changelog/db.changelog-master.xml`
+If you made any new migration, please be assured to have your model and the migration propperlly reflected in the db.changelog-master.xml file.
+
+After doing any change in any model and/or migration please flush liquibase by doing:
+
+`mvn liquibase:clearCheckSums` and then `mvn liquebase:update`.
 
 
 ## If it builds, great! If not, talk to emanuelle.

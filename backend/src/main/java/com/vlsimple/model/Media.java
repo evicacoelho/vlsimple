@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+// attributes
 @Entity
 @Table(name = "media")
 public class Media {
@@ -63,9 +64,20 @@ public class Media {
         this.createdAt = createdAt;
     }
 
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
     public Media() {
-        // No-arg constructor
+        // no-arg constructor
     }
 
 }
-
