@@ -1,4 +1,3 @@
-// src/components/Player.tsx
 import React from 'react';
 import '../App.tsx';
 
