@@ -1,22 +1,45 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import axios from "axios";
 
 const MediaUploadModal = ({
-    isOpen, onClose, onUpload
+    isOpen,
+    onClose,
+    onUploadSuccess,
 }: {
-    isOpen: boolean; onClose: () => void; onUpload: (files:FileList) => void}) => {
+    isOpen: boolean;
+    onClose: () => void;
+    onUploadSuccess: () => void;
+}) => {
         const fileInputRef = useRef<HTMLInputElement | null>(null);
-        
-        if (!isOpen) return null;
+        const [error, setError] = useState<string | null>(null);
 
-        const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if(!isOpen) return null;
+
+        const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
             if (e.target.files) {
-                onUpload(e.target.files);
+                const formData = new FormData();
+                Array.from(e.target.files).forEach((file) => {
+                    formData.append("files", file);
+                });
+
+                try {
+                    await axios.post(
+                        "http://localhost:8080/api/media/file", formData, {
+                            headers: {"Content-Type": "multipart/form-data"}
+                        });
+                    onUploadSuccess();
+                } catch (err) {
+                    setError("Failed to upload files");
+                }
             }
         };
 
-        const addWebkitDirectory = () => {
-            if (fileInputRef.current) {
-                fileInputRef.current.setAttribute('webkitdirectory', 'true');
+        const handleFolderUpload = async (folderPath: string) => {
+            try {
+                await axios.post("http://localhost:8080/api/media/folder", { folderPath });
+                onUploadSuccess();
+            } catch (err) {
+                setError("Failed to upload folder");
             }
         };
 
@@ -28,9 +51,10 @@ const MediaUploadModal = ({
                         type="file"
                         multiple
                         ref={fileInputRef}
-                        onClick={addWebkitDirectory}
                         onChange={handleFileChange}
                     />
+                    <button onClick={() => handleFolderUpload('some folder in the future')}>Upload Folder</button>
+                    {error && <p>error</p>}
                     <button onClick={onClose}>Close</button>
                 </div>
             </div>

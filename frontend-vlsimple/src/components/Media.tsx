@@ -28,14 +28,19 @@ const MediaList: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const handleUpload = (files: FileList) => {
-    // will integrate with backend soon
+
+  const handleUploadSuccess = () => {
+    setIsModalOpen(false);
+    const getMedia = async () => {
+      const data = await fetchMedia();
+      setMedia(data);
+    };
+    getMedia()
   };
 
   return (
     <div>
       <h2>Media List</h2>
-      <button onClick={() => OpenModal}>Add Media</button>
       <ul>
         {media.map((item) => (
           <li key={item.id}>
@@ -43,11 +48,12 @@ const MediaList: React.FC = () => {
           </li>
         ))}
       </ul>
+      <button onClick={() => OpenModal}>Upload Media</button>
       <MediaUploadModal
       
         isOpen={isModalOpen}
-        onClose={CloseModal}
-        onUpload={handleUpload}
+        onClose={() => CloseModal}
+        onUploadSuccess={handleUploadSuccess}
       />
     </div>
   );
